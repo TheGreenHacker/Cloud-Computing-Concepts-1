@@ -301,7 +301,7 @@ bool MP1Node::recvCallBack(void *env, char *data, int size ) {
                 
                 auto it = find_if(memberNode->memberList.begin(), memberNode->memberList.end(), [&mle](const MemberListEntry& other_mle) {return mle.id == other_mle.id && mle.port == other_mle.port;});
                 
-                /* New entry; add it if it hasn't been marked failed as shown by a negative heartbeat */
+                /* New entry; add it */
                 if (it == memberNode->memberList.end()) {
                     memberNode->memberList.emplace_back(mle.id, mle.port, mle.heartbeat, currtime);
                     memberNode->nnb++;
